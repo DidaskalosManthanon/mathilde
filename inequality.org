@@ -2,8 +2,6 @@
 #+AUTHOR: Laurent Garnier
 #+LANGUAGE: FR
 
-* Section 1
-** Sous-section
 * Introduction
 ** Accroche
 
