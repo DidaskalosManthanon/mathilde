@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mesurer les inégalités de richesses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #0066cc;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .container {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    canvas {
+      max-width: 100%;
+      margin: 2em 0;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Comprendre les inégalités de richesses avec les mathématiques</h1>
+  </header>
+
+  <div class="container">
+    <h2>Courbe de Lorenz simulée</h2>
+    <canvas id="lorenzChart"></canvas>
+    <p>La courbe de Lorenz ci-dessus montre comment la richesse est répartie dans une population fictive. Plus la courbe est éloignée de la diagonale (égalité parfaite), plus les inégalités sont fortes.</p>
+
+    <h2>Indice de Gini calculé</h2>
+    <p>L'indice de Gini pour ce modèle est : <strong id="giniValue">...</strong></p>
+  </div>
+
+  <script>
+    // Données fictives : pourcentage cumulé de population et de richesse
+    const population = [0, 0.1, 0.2, 0.4, 0.6, 0.8, 1];
+    const richesse =  [0, 0.02, 0.08, 0.2, 0.4, 0.7, 1];
+
+    const ctx = document.getElementById('lorenzChart').getContext('2d');
+    const lorenzChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: population.map(x => x * 100 + '%'),
+        datasets: [
+          {
+            label: 'Égalité parfaite',
+            data: population,
+            borderColor: '#aaa',
+            borderDash: [5, 5],
+            fill: false,
+          },
+          {
+            label: 'Courbe de Lorenz',
+            data: richesse,
+            borderColor: '#0074D9',
+            fill: true,
+            backgroundColor: 'rgba(0,116,217,0.2)',
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1,
+            title: {
+              display: true,
+              text: '% de la richesse'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: '% de la population'
+            }
+          }
+        }
+      }
+    });
+
+    // Calcul de l'indice de Gini (aire entre la diagonale et la courbe * 2)
+    function calculIndiceGini(x, y) {
+      let A = 0;
+      for (let i = 1; i < x.length; i++) {
+        A += (x[i] - x[i - 1]) * (y[i] + y[i - 1]) / 2;
+      }
+      return Math.round((0.5 - A) / 0.5 * 100) / 100; // arrondi à 2 décimales
+    }
+
+    document.getElementById('giniValue').innerText = calculIndiceGini(population, richesse);
+  </script>
+</body>
+</html>

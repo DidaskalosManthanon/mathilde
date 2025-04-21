@@ -1,0 +1,121 @@
+#+TITLE: Comment les mathématiques permettent-elles de mesurer et comprendre les inégalités de richesses ?
+#+AUTHOR: Laurent Garnier
+#+LANGUAGE: FR
+
+* Section 1
+** Sous-section
+* Introduction
+** Accroche
+
+   En 2024, les 1% les plus riches de la planète détenaient près de
+   43% des richesses mondiales (rapport [[https://www.oxfamfrance.org/rapports/multinationales-et-inegalites-multiples/][Oxfam]]). Mais comment
+   mesure-t-on ces inégalités, et que nous disent les mathématiques
+   sur leurs causes et leurs conséquences ?
+
+** Problématique
+
+   Comment les outils mathématiques (statistiques, indicateurs,
+   modèles) permettent-ils de quantifier et d’analyser les inégalités
+   économiques ?
+
+** Annonce du plan
+
+   1. *Mesurer les inégalités* : les indicateurs mathématiques.
+   2. *Modéliser les mécanismes* : lois et théories économiques.
+   3. *Limites et enjeux* : que ne peuvent pas expliquer les maths ?
+
+* Partie 1 : Mesurer les inégalités
+** Outils statistiques
+
+   + [[https://fr.wikipedia.org/wiki/Courbe_de_Lorenz][Courbe de Lorenz]] : représentation graphique de la répartition des
+     richesses.
+
+     #+CAPTION: Courbe de Lorenz pour le Danemark, la Hongrie et la Namibie
+     #+NAME: fig-lorenz
+     #+ATTR_HTML: :width 300px :height 200px
+     #+ATTR_LATEX: :width 5cm :height 3cm
+     [[./lorenz-curve.png]]
+
+     #+CAPTION: Courbe de Lorenz des revenus et du patrimoine en France en 2010
+     #+NAME: fig-france
+     #+ATTR_HTML: :width 300px :height 200px
+     #+ATTR_LATEX: :width 5cm :height 3cm
+     [[./lorenz-france-2010.png]]
+   + [[https://fr.wikipedia.org/wiki/Coefficient_de_Gini][Indice de Gini]] : (0 = égalité parfaite, 1 = inégalité totale)
+
+     #+CAPTION: Méthode géométrique pour calculer le coefficient de Gini à partir de la courbe de Lorenz
+     #+NAME: fig-gini-lorenz
+     #+ATTR_HTML: :width 300px :height 200px
+     #+ATTR_LATEX: :width 5cm :height 3cm
+     [[./GiniLorenz.png]]
+
+     Calcul : \[G = \dfrac{A}{A + B}\]
+   + Rapports interquantiles (ex : D9/D1 = rapport entre les 10% les
+     plus riches et les 10% les plus pauvres).
+     
+* Partie 2 : Modéliser les inégalités
+** Lois empiriques
+
+   + [[https://fr.wikipedia.org/wiki/Loi_de_Pareto][Loi de Pareto]] (80-20) : 20% de la population possède 80% des
+     richesses.
+
+     Formule mathématique : \[P(X > x) \simeq
+     \left(\dfrac{x_{min}}{x}\right)^k\]
+     où \(k\) est un paramètre d'inégalité.
+   + Modèle de Piketty : \(r > g\) (rendement du capital > croissance
+     économique) amplifie les inégalités (via des équations
+     différentielles)
+
+** Approche probabiliste
+
+   + Distributions asymétriques ([[https://fr.wikipedia.org/wiki/Loi_log-normale][loi log-normale]] pour les revenus,
+     puissance pour les très hautes richesses)
+     
+
+* Partie 3 : Limites et enjeux
+** Ce que les maths ne capturent pas
+
+   + Facteurs sociaux/historiques (colonisation, discrimination
+   + Biais des données (richesse offshore, travail non rémunéré)
+
+** Débats actuels
+
+   + Faut-il taxer les riches ? Simulations mathématiques de l'impact
+     des politiques fiscales.
+   + Inéglaités vs croissance : [[https://fr.wikipedia.org/wiki/Courbe_de_Kuznets][courbe de Kuznets]] (hypothèse en U inversé)
+
+
+* Conclusion
+** Réponse à la problématique
+
+   Les maths fournissent des outils rigoureux pour quantifier et
+   modéliser les inégalités, mais leur interprétation nécessite un
+   regard pluridisciplinaire.
+
+** Ouverture
+
+   Avec l’IA et le big data, les maths pourraient-elles prédire (et
+   réduire) les inégalités à l’avenir ?
+
+* Préparation pour l’oral
+** Exemples à citer 
+
+   + Comparaison Gini France vs Afrique du Sud.
+   + Graphique de Lorenz pour un pays de ton choix (à dessiner au tableau).
+
+** Révisions des notions 
+
+   + Calculer un Gini (aire entre courbe de Lorenz et droite d’égalité).
+   + Comprendre les lois puissance (Pareto).
+
+** Entraîne-toi 
+
+   + Explique ces concepts à un public non-matheux (amis/famille).
+
+** Ressources utiles 
+
+   + Livre Le Capital au XXIe siècle (Piketty).
+   + Rapports Oxfam/INSEE/Banque Mondiale.   
+
+
+   
